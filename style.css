@@ -1,0 +1,98 @@
+/* Glavni zunanji vsebnik, ki poskrbi za centriranje na strani */
+.slider-outer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.vertical-slider-container {
+  position: relative;
+  /* Začetna fiksna višina za računalnike */
+  height: 500px; 
+  width: auto;
+  max-width: 100%; /* Prepreči, da gre okvir čez rob zaslona */
+  overflow: hidden;
+  user-select: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Spodnja slika (Ozadje) */
+.v-image-background {
+  height: 100%;
+  display: block;
+}
+
+.v-image-background img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* Zgornja slika (Roleta) */
+.v-image-foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Slika znotraj rolete */
+.v-image-foreground img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+/* Vodoravna ročica rolete */
+.v-slider-handle {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  cursor: ns-resize;
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.v-slider-handle::after {
+  content: "↕";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* MOBILNA PRILAGODITEV: Prilagoditev za ozke zaslone */
+@media (max-width: 800px) {
+  .vertical-slider-container {
+    height: auto; /* Sprostimo višino na mobilnikih */
+  }
+  .v-image-background {
+    height: auto;
+    width: 100%;
+  }
+  .v-image-background img {
+    width: 100%;
+    height: auto; /* Slika se prilagaja širini telefona */
+  }
+}

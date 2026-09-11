@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertikalna Roleta - Test</title>
+    <!-- Povezava s CSS datoteko -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2 style="text-align: center; margin: 20px 0; font-family: sans-serif;">
+        Povlecite ročico gor ali dol
+    </h2>
+
+    <div class="slider-outer-wrapper">
+  <div class="vertical-slider-container">
+      <!-- Spodnja slika (Ozadje - večja slika se bo pomanjšala na višino okvirja) -->
+      <div class="v-image-background">
+          <img src="bottom_1.jpg" alt="Ozadje">
+      </div>
+      
+      <!-- Zgornja slika (Roleta) -->
+      <div class="v-image-foreground">
+          <img src="top_1.jpg" alt="Roleta">
+      </div>
+      
+      <div class="v-slider-handle"></div>
+  </div>
+</div>
+
+
+    <!-- Povezava z JavaScript datoteko (na dnu pred zapiralno značko body) -->
+    <script src="script.js"></script>
+</body>
+</html>

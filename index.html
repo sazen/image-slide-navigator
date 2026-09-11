@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertikalna Roleta - Test</title>
-    <!-- Povezava s CSS datoteko -->
+    <title>Vertikalna Roleta s Horizontalnim Listanjem</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2 style="text-align: center; margin: 20px 0; font-family: sans-serif;">
-        Povlecite ročico gor ali dol
+    <h2 style="text-align: center; margin: 20px 0; font-family: sans-serif; color: #333;">
+        Listajte levo/desno | Vlecite ročico gor/dol
     </h2>
 
-    <div class="slider-outer-wrapper">
-  <div class="vertical-slider-container">
-      <!-- Spodnja slika (Ozadje - večja slika se bo pomanjšala na višino okvirja) -->
-      <div class="v-image-background">
-          <img src="bottom_1.jpg" alt="Ozadje">
-      </div>
-      
-      <!-- Zgornja slika (Roleta) -->
-      <div class="v-image-foreground">
-          <img src="top_1.jpg" alt="Roleta">
-      </div>
-      
-      <div class="v-slider-handle"></div>
-  </div>
-</div>
+    <div class="main-slider-container">
+        <!-- Glavna proga, ki se premika levo-desno -->
+        <div class="main-slider-track">
+            
+            <!-- 1. SLIKOVNI PAR -->
+            <div class="slide-pair">
+                <div class="vertical-slider-container">
+                    <div class="v-image-background">
+                        <img src="https://picsum.photos" alt="Ozadje 1">
+                    </div>
+                    <div class="v-image-foreground">
+                        <img src="https://picsum.photos" alt="Roleta 1">
+                    </div>
+                    <div class="v-slider-handle"></div>
+                </div>
+            </div>
 
+            <!-- 2. SLIKOVNI PAR -->
+            <div class="slide-pair">
+                <div class="vertical-slider-container">
+                    <div class="v-image-background">
+                        <img src="https://picsum.photos" alt="Ozadje 2">
+                    </div>
+                    <div class="v-image-foreground">
+                        <img src="https://picsum.photos" alt="Roleta 2">
+                    </div>
+                    <div class="v-slider-handle"></div>
+                </div>
+            </div>
 
-    <!-- Povezava z JavaScript datoteko (na dnu pred zapiralno značko body) -->
+            <!-- 3. SLIKOVNI PAR -->
+            <div class="slide-pair">
+                <div class="vertical-slider-container">
+                    <div class="v-image-background">
+                        <img src="https://picsum.photos" alt="Ozadje 3">
+                    </div>
+                    <div class="v-image-foreground">
+                        <img src="https://picsum.photos" alt="Roleta 3">
+                    </div>
+                    <div class="v-slider-handle"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Kontrolna gumba levo/desno -->
+        <button class="nav-btn prev-btn">&#10094;</button>
+        <button class="nav-btn next-btn">&#10095;</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

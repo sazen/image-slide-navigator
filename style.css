@@ -1,49 +1,65 @@
-/* Glavni zunanji vsebnik, ki poskrbi za centriranje na strani */
-.slider-outer-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.vertical-slider-container {
+/* Glavni zunanji vsebnik celotne aplikacije */
+.main-slider-container {
   position: relative;
-  /* Začetna fiksna višina za računalnike */
-  height: 500px; 
-  width: auto;
-  max-width: 100%; /* Prepreči, da gre okvir čez rob zaslona */
+  width: 100%;
+  max-width: 800px;
+  height: 500px; /* Fiksna višina na računalnikih */
+  margin: auto;
   overflow: hidden;
   user-select: none;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Spodnja slika (Ozadje) */
-.v-image-background {
+/* Horizontalna proga, ki drsi levo-desno */
+.main-slider-track {
+  display: flex;
+  width: 100%;
   height: 100%;
-  display: block;
+  transition: transform 0.4s ease-out; /* Poskrbi za mehko listanje parov */
+  cursor: grab; /* Nakazuje uporabniku, da lahko prime in povleče */
 }
 
-.v-image-background img {
-  height: 100%;
-  width: auto;
-  display: block;
+.main-slider-track:active {
+  cursor: grabbing;
 }
 
-/* Zgornja slika (Roleta) */
-.v-image-foreground {
+/* Vsak posamezen par zasede natanko 100% širine okvirja */
+.slide-pair {
+  min-width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Vertikalni drsnik (izoliran znotraj para) */
+.vertical-slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.v-image-background, .v-image-foreground {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: 2;
 }
 
-/* Slika znotraj rolete */
+.v-image-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.v-image-foreground {
+  overflow: hidden;
+  z-index: 2;
+  height: 100%; /* Privzeto spuščena */
+}
+
 .v-image-foreground img {
   position: absolute;
   top: 0;
@@ -82,17 +98,30 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
-/* MOBILNA PRILAGODITEV: Prilagoditev za ozke zaslone */
+/* Navigacijski gumbi */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 16px 12px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.nav-btn:hover { background-color: rgba(0, 0, 0, 0.7); }
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* ODZIVNOST: Mobilna prilagoditev */
 @media (max-width: 800px) {
-  .vertical-slider-container {
-    height: auto; /* Sprostimo višino na mobilnikih */
-  }
-  .v-image-background {
+  .main-slider-container {
     height: auto;
-    width: 100%;
-  }
-  .v-image-background img {
-    width: 100%;
-    height: auto; /* Slika se prilagaja širini telefona */
+    aspect-ratio: 8 / 5; /* Ohranja fiksno razmerje slik na telefonih */
   }
 }
